@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>AWS Translate</title>
+</head>
+<body>
+    <div class="page">
+        <div class="translator">
+            <div class="translator-head">
+                <div>
+                    <select name="source" id="source-select">
+                        <option value="en">English</option>
+                        <option value="zh">Chinese</option>
+                        <option value="da">Danish</option>
+                        <option value="fi">Finnish</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="fr">French</option>
+                        <option value="pl">Polish</option>
+                        <option value="uk">Ukrainian</option>
+                    </select>
+                </div>
+                <div class="arrows-container">
+                    <img id="arrows" src="images/arrows.png" alt="arrows">
+                </div>
+                <div>
+                    <select name="target" id="target-select">
+                        <option value="zh">Chinese</option>
+                        <option value="da">Danish</option>
+                        <option value="fi">Finnish</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="en">English</option>
+                        <option value="fr">French</option>
+                        <option value="pl">Polish</option>
+                        <option value="uk">Ukrainian</option>
+                    </select>
+                </div>
+            </div>
+            <div class="translator-text">
+                <div class="textarea-container">
+                    <textarea placeholder="Input text" id="input-text"></textarea>
+                </div>
+                <div class="translated-container">
+                    <div class="translated-text">
+                        <span id="translated">translated text</span>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <div>
+                    <button class="button" role="button">Translate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
