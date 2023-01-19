@@ -1,11 +1,65 @@
 'use strict';
 
-let button = document.querySelector('.button');
-let translated = document.querySelector('#translated');
-let arrows = document.querySelector('#arrows');
-let textElement = document.querySelector('#input-text');
-let sourceElement = document.querySelector('#source-select');
-let targetElement = document.querySelector('#target-select');
+window.addEventListener('DOMContentLoaded',()=>{
+
+const button = document.querySelector('.button');
+const translated = document.querySelector('#translated');
+const arrows = document.querySelector('#arrows');
+const textElement = document.querySelector('#input-text');
+const sourceElement = document.querySelector('#source-select');
+const targetElement = document.querySelector('#target-select');
+
+const languageMap = new Map([
+    ["English","en"],
+    ["Chinese","zh"],
+    ["Danish","da"],
+    ["Finnish","fi"],
+    ["German","de"],
+    ["Italian","it"],
+    ["Japanese","ja"],
+    ["French","fr"],
+    ["Polish","pl"],
+    ["Ukrainian","uk"]
+]);
+
+let languageArray = Array.from(languageMap, ([key, value]) => ({ key: key, value: value }));
+
+button.addEventListener('click', translate);
+arrows.addEventListener('click', swap);
+sourceElement.addEventListener('change', changeSelect);
+
+
+fillSelect(languageArray,sourceElement);
+fillSelect(languageArray.slice(1,languageArray.length),targetElement);
+
+function fillSelect(languageArray,selectElement){
+    languageArray.forEach((element) => {
+        let option = document.createElement("option");
+        option.text = element.key;
+        option.value = element.value;
+        selectElement.appendChild(option);
+    });
+}
+
+function changeSelect(e,value){
+    let sourceValue = sourceElement.value;
+    let targetValue = targetElement.value;
+    targetElement.innerHTML=null;
+    fillSelect(languageArray.filter( element => {
+        return element.value != sourceValue;
+    }),targetElement);
+    
+    if(sourceValue != targetValue){
+        targetElement.value = targetValue;
+    }
+
+    if(value){
+        console.log(value);
+        targetElement.value = value;
+    }
+
+    e.preventDefault();
+}
 
 function translate(event){
     let text = textElement.value;
@@ -45,9 +99,10 @@ function translate(event){
 }
 
 function swap(event){
-    let temp = sourceElement.value;
-    sourceElement.value = targetElement.value;
-    targetElement.value = temp;
+    let sourceValue = sourceElement.value;
+    let targetValue = targetElement.value;
+
+    sourceElement.value = targetValue
 
     let translatedValue = translated.innerHTML;
     let textValue = textElement.value;
@@ -57,8 +112,7 @@ function swap(event){
         translated.innerHTML = textValue; 
     }
 
-    event.preventDefault();
+    changeSelect(event,sourceValue);
 }
 
-button.addEventListener('click', translate);
-arrows.addEventListener('click', swap);
+});
