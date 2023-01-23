@@ -7,6 +7,7 @@ import com.amazonaws.services.translate.AmazonTranslateClientBuilder;
 import com.amazonaws.services.translate.model.TranslateTextRequest;
 import com.amazonaws.services.translate.model.TranslateTextResult;
 import com.nahorniak.awstranslateapplication.config.AWSConfig;
+import com.nahorniak.awstranslateapplication.entity.Message;
 import com.nahorniak.awstranslateapplication.service.TranslateService;
 import com.amazonaws.auth.BasicAWSCredentials;
 import jakarta.annotation.PostConstruct;
@@ -34,14 +35,19 @@ public class AWSTranslateServiceImpl implements TranslateService {
     }
 
     @Override
-    public String translate(String text, String sourceLang, String targetLang) {
+    public String translate(Message message) {
         TranslateTextRequest request = new TranslateTextRequest()
-                .withText(text)
-                .withSourceLanguageCode(sourceLang)
-                .withTargetLanguageCode(targetLang);
+                .withText(message.getText())
+                .withSourceLanguageCode(message.getSourceLang())
+                .withTargetLanguageCode(message.getTargetLang());
 
         TranslateTextResult result = client.translateText(request);
-        log.info("Text: {}, Source Lang: {}, Target Lang: {}, Result: {}", text, sourceLang, targetLang, result.getTranslatedText());
+        log.info("Text: {}, Source Lang: {}, Target Lang: {}, Result: {}",
+                message.getText(),
+                message.getSourceLang(),
+                message.getTargetLang(),
+                result.getTranslatedText());
+
         return result.getTranslatedText();
     }
 }

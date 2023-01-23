@@ -13,7 +13,7 @@ const languageMap = new Map([
     ["English","en"], ["Chinese","zh"], ["Danish","da"], ["Finnish","fi"], ["German","de"], ["Italian","it"],
     ["Japanese","ja"], ["French","fr"], ["Polish","pl"], ["Ukrainian","uk"],["Georgian","ka"],["Greek","el"],
     ["Irish","ga"],["Hindi","hi"],["Latvian","lv"],["Lithuanian","lt"],["Ukrainian","uk"],["Romanian","ro"],
-    ["Slovak","sk"],["Slovenian","sl"],["Spanish","es"],["Swedish","sv"],["Turkish","tr"],
+    ["Slovak","sk"],["Slovenian","sl"],["Spanish","es"],["Swedish","sv"],["Turkish","tr"]
 ]);
 
 let languageArray = Array.from(languageMap, ([key, value]) => ({ key: key, value: value }));

@@ -3,6 +3,7 @@ package com.nahorniak.awstranslateapplication.controller;
 import com.nahorniak.awstranslateapplication.entity.Message;
 import com.nahorniak.awstranslateapplication.service.TranslateService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,7 +14,7 @@ public class TranslatorController {
     private final TranslateService service;
 
     @PostMapping("translate")
-    public String translate(@RequestBody Message message){
-        return service.translate(message.getText(), message.getSourceLang(), message.getTargetLang());
+    public String translate(@RequestBody @NonNull Message message){
+        return service.translate(message);
     }
 }

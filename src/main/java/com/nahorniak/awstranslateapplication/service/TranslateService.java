@@ -1,6 +1,8 @@
 package com.nahorniak.awstranslateapplication.service;
 
 
+import com.nahorniak.awstranslateapplication.entity.Message;
+
 public interface TranslateService {
-    String translate(String text, String sourceLang, String targetLang);
+    String translate(Message message);
 }
