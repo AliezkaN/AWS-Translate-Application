@@ -1,6 +1,5 @@
 package com.nahorniak.awstranslateapplication.service;
 
-import com.nahorniak.awstranslateapplication.entity.Message;
 import com.nahorniak.awstranslateapplication.service.impl.AWSTranslateServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,20 +18,62 @@ public class AwsTranslateServiceTest {
 
     private static final String INPUT = "Hello friend!";
     private static final String SOURCE_LANG = "en";
-    private static final String TARGET_LANG = "uk";
-    private static final String TRANSLATED_TEXT = "Привіт друже!";
 
     @Autowired
     private AWSTranslateServiceImpl awsTranslateService;
 
     @Test
-    void translate(){
+    void translate_fromEnglish_toUkrainian(){
 
-        String actualResponse = awsTranslateService.translate(INPUT,SOURCE_LANG,TARGET_LANG);
+        String targetLanguage = "uk";
+        String expectedResponse = "Привіт друже!";
+
+        String actualResponse = awsTranslateService.translate(INPUT,SOURCE_LANG,targetLanguage);
 
         assertNotNull(actualResponse);
-        assertEquals(actualResponse,TRANSLATED_TEXT);
+        assertEquals(actualResponse,expectedResponse);
 
     }
+
+    @Test
+    void translate_fromEnglish_toGerman(){
+
+        String targetLanguage = "de";
+        String expectedResponse = "Hallo Freund!";
+
+        String actualResponse = awsTranslateService.translate(INPUT,SOURCE_LANG,targetLanguage);
+
+        assertNotNull(actualResponse);
+        assertEquals(actualResponse,expectedResponse);
+
+    }
+
+    @Test
+    void translate_fromEnglish_toPolish(){
+
+        String targetLanguage = "pl";
+        String expectedResponse = "Witaj przyjacielu!";
+
+        String actualResponse = awsTranslateService.translate(INPUT,SOURCE_LANG,targetLanguage);
+
+        assertNotNull(actualResponse);
+        assertEquals(actualResponse,expectedResponse);
+
+    }
+
+    @Test
+    void translate_fromEnglish_toJapanese(){
+
+        String targetLanguage = "ja";
+        String expectedResponse = "こんにちは、友達！";
+
+        String actualResponse = awsTranslateService.translate(INPUT,SOURCE_LANG,targetLanguage);
+
+        assertNotNull(actualResponse);
+        assertEquals(actualResponse,expectedResponse);
+
+    }
+
+
 
 }

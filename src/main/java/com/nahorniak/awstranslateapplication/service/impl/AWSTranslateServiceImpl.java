@@ -7,7 +7,6 @@ import com.amazonaws.services.translate.AmazonTranslateClientBuilder;
 import com.amazonaws.services.translate.model.TranslateTextRequest;
 import com.amazonaws.services.translate.model.TranslateTextResult;
 import com.nahorniak.awstranslateapplication.config.AWSConfig;
-import com.nahorniak.awstranslateapplication.entity.Message;
 import com.nahorniak.awstranslateapplication.service.TranslateService;
 import com.amazonaws.auth.BasicAWSCredentials;
 import jakarta.annotation.PostConstruct;
