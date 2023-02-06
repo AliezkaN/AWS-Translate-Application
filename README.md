@@ -27,10 +27,14 @@ https://github.com/AliezkaN/AWS-Translate-Application.git
 
 **3.7 Run application**
 
-## As you ran application open Localhost:8080 in browser
+## As you ran application open http://localhost:8080/ in browser
 
 ![image](https://user-images.githubusercontent.com/84874469/212773460-fc7e3c96-d1fc-4bae-a091-003d2bf925e8.png)
 ![image](https://user-images.githubusercontent.com/84874469/212773560-119b1bbd-02c9-478b-9046-4c56dc9c9a46.png)
 ![image](https://user-images.githubusercontent.com/84874469/212773708-c21b523c-b7bb-428f-9bd2-26bbd8b26b18.png)
 ![image](https://user-images.githubusercontent.com/84874469/212773827-cdd13a7a-b30c-47ff-ac45-3554a86374d3.png)
 ![image](https://user-images.githubusercontent.com/84874469/212773995-82fc8db6-aead-4621-8af7-472269485914.png)
+
+## Swagger documentation - http://localhost:8080/swagger-ui.html
+
+![image](https://user-images.githubusercontent.com/84874469/217014739-f4367cbf-86f0-473f-a35c-a60e83c9f78b.png)
