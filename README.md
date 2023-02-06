@@ -37,4 +37,6 @@ https://github.com/AliezkaN/AWS-Translate-Application.git
 
 ## Swagger documentation - http://localhost:8080/swagger-ui.html
 
-![image](https://user-images.githubusercontent.com/84874469/217014739-f4367cbf-86f0-473f-a35c-a60e83c9f78b.png)
+![image](https://user-images.githubusercontent.com/84874469/217021516-5a2f3e5c-419f-46be-8b53-18d7a3c3f2f1.png)
+![image](https://user-images.githubusercontent.com/84874469/217021634-e612d7c8-900d-449b-aa02-690122b6e892.png)
+
