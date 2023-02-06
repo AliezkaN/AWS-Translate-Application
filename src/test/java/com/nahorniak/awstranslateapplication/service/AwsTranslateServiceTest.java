@@ -28,14 +28,7 @@ public class AwsTranslateServiceTest {
     @Test
     void translate(){
 
-        Message message = Message
-                .builder()
-                .text(INPUT)
-                .sourceLang(SOURCE_LANG)
-                .targetLang(TARGET_LANG)
-                .build();
-
-        String actualResponse = awsTranslateService.translate(message);
+        String actualResponse = awsTranslateService.translate(INPUT,SOURCE_LANG,TARGET_LANG);
 
         assertNotNull(actualResponse);
         assertEquals(actualResponse,TRANSLATED_TEXT);

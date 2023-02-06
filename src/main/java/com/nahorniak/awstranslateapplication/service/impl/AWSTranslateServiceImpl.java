@@ -35,17 +35,17 @@ public class AWSTranslateServiceImpl implements TranslateService {
     }
 
     @Override
-    public String translate(Message message) {
+    public String translate(String text, String sourceLanguage, String targetLanguage) {
         TranslateTextRequest request = new TranslateTextRequest()
-                .withText(message.getText())
-                .withSourceLanguageCode(message.getSourceLang())
-                .withTargetLanguageCode(message.getTargetLang());
+                .withText(text)
+                .withSourceLanguageCode(sourceLanguage)
+                .withTargetLanguageCode(targetLanguage);
 
         TranslateTextResult result = client.translateText(request);
         log.info("Text: {}, Source Lang: {}, Target Lang: {}, Result: {}",
-                message.getText(),
-                message.getSourceLang(),
-                message.getTargetLang(),
+                text,
+                sourceLanguage,
+                targetLanguage,
                 result.getTranslatedText());
 
         return result.getTranslatedText();

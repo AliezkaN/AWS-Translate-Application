@@ -82,11 +82,17 @@ function translate(event){
             }
         };
 
-        xhttp.open("POST", url, true);
+        if(data) url =  url + '?' +
+            Object
+                .keys(data)
+                .map(function (key) { return [key, data[key]].map(encodeURIComponent).join("="); })
+                .join("&");
+
+        xhttp.open("GET", url, true);
         xhttp.setRequestHeader("Accept", 'application/json; charset=UTF-8');
         xhttp.setRequestHeader("Content-Type", 'application/json; charset=UTF-8');
 
-        xhttp.send(JSON.stringify(data));
+        xhttp.send();
     }
     
     event.preventDefault();
